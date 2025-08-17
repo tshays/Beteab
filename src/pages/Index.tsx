@@ -6,7 +6,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import HeroSection from '@/components/HeroSection';
 import PortfolioSection from '@/components/PortfolioSection';
 import AboutSection from '@/components/AboutSection';
-import ServicesSection from '@/components/ServicesSection';
 import ToolsSection from '@/components/ToolsSection';
 import ContactSection from '@/components/ContactSection';
 
@@ -30,9 +29,6 @@ const Index = () => {
       
       {/* Tools Section */}
       <ToolsSection />
-      
-      {/* Services Section */}
-      <ServicesSection />
       
       {/* Contact Section */}
       <ContactSection />

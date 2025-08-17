@@ -16,12 +16,19 @@ const HeroSection = () => {
     <section className="hero-container">
       <div className="hero-pattern"></div>
       
-      {/* Hero Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="/lovable-uploads/52a90dd5-e5c0-4f49-9b9f-99f498cb7eb2.png"
-          alt="Ethiopian Cultural Art"
-          className="w-full h-full object-cover opacity-20"
+      {/* Hero Background Video */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <iframe
+          src="https://www.youtube.com/embed/GyM_beT-NiE?autoplay=1&mute=1&loop=1&playlist=GyM_beT-NiE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0"
+          className="w-full h-full object-cover scale-125"
+          style={{ 
+            minWidth: '100vw', 
+            minHeight: '100vh',
+            pointerEvents: 'none'
+          }}
+          allow="autoplay; encrypted-media"
+          allowFullScreen={false}
+          frameBorder="0"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/80"></div>
       </div>
