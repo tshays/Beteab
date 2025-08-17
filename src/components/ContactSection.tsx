@@ -53,7 +53,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Email</h4>
-                  <p className="text-muted-foreground">beteabalemu@email.com</p>
+                  <p className="text-muted-foreground">beteabalemu@gmail.com</p>
                 </div>
               </div>
               
@@ -87,6 +87,9 @@ const ContactSection = () => {
                 </Button>
                 <Button variant="outline" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
                   <Instagram className="w-5 h-5" />
+                </Button>
+                <Button variant="outline" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
+                  <Mail className="w-5 h-5" />
                 </Button>
                 <Button variant="outline" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
                   <Linkedin className="w-5 h-5" />

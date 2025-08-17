@@ -37,18 +37,8 @@ const HeroSection = () => {
       <div className="container-custom relative z-10 text-center">
         <div className="animate-fade-in-up">
           <TypewriterText />
-          <h2 className="text-xl md:text-2xl text-accent font-semibold mb-4 mt-6">
-            Multi-Disciplinary Creative Professional
-          </h2>
-          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Graphics Designer | Video Editor | Digital Artist | Wall Painter | Book Designer
-          </p>
-          <p className="text-base md:text-lg text-primary-foreground/80 mb-12 max-w-2xl mx-auto">
-            Bringing creativity to life through diverse artistic mediums, 
-            blending traditional Ethiopian culture with modern digital artistry
-          </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12">
             <Button 
               onClick={scrollToPortfolio}
               className="btn-primary group"

@@ -6,6 +6,8 @@ import PortfolioSection from '@/components/PortfolioSection';
 import AboutSection from '@/components/AboutSection';
 import ToolsSection from '@/components/ToolsSection';
 import ContactSection from '@/components/ContactSection';
+import { Facebook, Instagram, Mail, Send } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -58,12 +60,26 @@ const Index = () => {
             </div>
             
             <div>
-              <h4 className="text-lg font-semibold mb-4 text-accent">Services</h4>
-              <ul className="space-y-2">
-                <li className="text-primary-foreground/80">Graphics Design</li>
-                <li className="text-primary-foreground/80">Video Editing</li>
-                <li className="text-primary-foreground/80">Digital Printing</li>
-                <li className="text-primary-foreground/80">Book Design</li>
+              <h4 className="text-lg font-semibold mb-4 text-accent">Connect With Me</h4>
+              <div className="flex gap-3 justify-center md:justify-start mb-4">
+                <Button variant="outline" size="icon" className="rounded-full border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground hover:border-accent">
+                  <Facebook className="w-4 h-4" />
+                </Button>
+                <Button variant="outline" size="icon" className="rounded-full border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground hover:border-accent">
+                  <Instagram className="w-4 h-4" />
+                </Button>
+                <Button variant="outline" size="icon" className="rounded-full border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground hover:border-accent">
+                  <Mail className="w-4 h-4" />
+                </Button>
+                <Button variant="outline" size="icon" className="rounded-full border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground hover:border-accent">
+                  <Send className="w-4 h-4" />
+                </Button>
+              </div>
+              <ul className="space-y-1 text-sm text-primary-foreground/60">
+                <li>Graphics Design</li>
+                <li>Video Editing</li>
+                <li>Digital Printing</li>
+                <li>Book Design</li>
               </ul>
             </div>
           </div>
