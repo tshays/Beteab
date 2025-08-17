@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Eye, MessageSquare } from 'lucide-react';
+import TypewriterText from './TypewriterText';
 
 const HeroSection = () => {
   const scrollToPortfolio = () => {
@@ -35,10 +36,8 @@ const HeroSection = () => {
       
       <div className="container-custom relative z-10 text-center">
         <div className="animate-fade-in-up">
-          <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6">
-            Beteab Alemu
-          </h1>
-          <h2 className="text-xl md:text-2xl text-accent font-semibold mb-4">
+          <TypewriterText />
+          <h2 className="text-xl md:text-2xl text-accent font-semibold mb-4 mt-6">
             Multi-Disciplinary Creative Professional
           </h2>
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed">
