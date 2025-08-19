@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Eye, MessageSquare } from 'lucide-react';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
-import Galaxy from './Galaxy';
+import LightRays from './LightRays';
 
 const HeroSection = () => {
   const scrollToPortfolio = () => {
@@ -16,15 +16,18 @@ const HeroSection = () => {
 
   return (
     <section className="hero-container overflow-hidden relative">
-      {/* Galaxy Background */}
+      {/* LightRays Background */}
       <div className="absolute inset-0 z-0">
-        <Galaxy 
-          mouseRepulsion={true}
-          mouseInteraction={true}
-          density={1.5}
-          glowIntensity={0.5}
-          saturation={0.8}
-          hueShift={240}
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#00ffff"
+          raysSpeed={1.5}
+          lightSpread={0.8}
+          rayLength={1.2}
+          followMouse={true}
+          mouseInfluence={0.1}
+          noiseAmount={0.1}
+          distortion={0.05}
         />
       </div>
       
