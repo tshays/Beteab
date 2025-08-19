@@ -14,23 +14,19 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="animate-fade-in-left">
             <h3 className="text-2xl font-bold text-primary mb-6">
-              Multi-Disciplinary Creative Journey
+              Bringing Culture to Life Through Art
             </h3>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              With a passion for bringing stories to life through visual arts, I specialize in 
-              creating meaningful designs that bridge traditional Ethiopian culture with contemporary 
-              artistic expression. My work spans across multiple mediums, from digital graphics 
-              to hand-painted murals.
+              My creative journey blends Ethiopian tradition with modern expression, spanning digital design, video, and hand-painted murals.
             </p>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Each project is approached with deep cultural sensitivity and artistic excellence, 
-              ensuring that every piece not only meets professional standards but also honors 
-              the rich heritage it represents.
+              I approach each project with cultural sensitivity and artistic excellence, using visual communication as a tool for storytelling and preservation.
+            </p>
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+              Every piece is designed to connect deeply with audiences while honoring heritage.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              My artistic philosophy centers on the belief that visual communication transcends 
-              language barriers, making it a powerful tool for cultural preservation and 
-              contemporary storytelling.
+              I strive to push creative boundaries, exploring new techniques and mediums in every project.
             </p>
           </div>
           

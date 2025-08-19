@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Eye, MessageSquare } from 'lucide-react';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
+import Galaxy from './Galaxy';
 
 const HeroSection = () => {
   const scrollToPortfolio = () => {
@@ -14,26 +15,29 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="hero-container overflow-hidden">
+    <section className="hero-container overflow-hidden relative">
+      {/* Galaxy Background */}
+      <div className="absolute inset-0 z-0">
+        <Galaxy 
+          mouseRepulsion={true}
+          mouseInteraction={true}
+          density={1.5}
+          glowIntensity={0.5}
+          saturation={0.8}
+          hueShift={240}
+        />
+      </div>
+      
       <div className="hero-pattern"></div>
       
       <ContainerScroll
         titleComponent={
-          <div className="text-center">
+          <div className="text-center relative z-10">
             <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6">
-              My name is <br />
               <span className="text-accent">Beteab Alemu</span>
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/80 mb-8 max-w-4xl mx-auto">
-              I am a Multi-Disciplinary Creative Professional specializing in 
-              <span className="text-accent"> Graphics Design</span>, 
-              <span className="text-accent"> Video Editing</span>, 
-              <span className="text-accent"> Digital Art</span>, 
-              <span className="text-accent"> Wall Painting</span>, and 
-              <span className="text-accent"> Book Design</span>
-            </p>
-            <p className="text-lg text-primary-foreground/70 mb-12 max-w-3xl mx-auto">
-              Bringing creativity to life through diverse artistic mediums, blending traditional Ethiopian culture with modern digital artistry
+            <p className="text-xl md:text-2xl text-primary-foreground/80 mb-12 max-w-4xl mx-auto">
+              Blending Ethiopian tradition with modern digital artistry.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
