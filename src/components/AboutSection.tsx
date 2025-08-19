@@ -20,20 +20,8 @@ const AboutSection = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto mb-8"></div>
         </div>
         
-        <div className="grid lg:grid-cols-3 gap-16 items-center">
-          {/* Profile Picture */}
-          <div className="animate-fade-in-left lg:col-span-1">
-            <div className="relative mx-auto w-80 h-80 rounded-full overflow-hidden shadow-2xl">
-              <img
-                src="/lovable-uploads/beteab-profile.jpg"
-                alt="Beteab Alemu"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
-            </div>
-          </div>
-
-          <div className="animate-fade-in-left lg:col-span-2">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="animate-fade-in-left">
             <h3 className="text-2xl font-bold text-primary mb-6">
               Multi-Disciplinary Creative Journey
             </h3>
@@ -54,31 +42,31 @@ const AboutSection = () => {
               contemporary storytelling.
             </p>
           </div>
-        </div>
-        
-        <div className="mt-16 animate-fade-in-right">
-          <h3 className="text-2xl font-bold text-primary mb-8 text-center">Skills & Expertise</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skills.map((skill, index) => (
-              <div key={skill.name} className="group">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-3">
-                    <skill.icon className="w-5 h-5 text-accent group-hover:scale-110 transition-transform" />
-                    <span className="font-semibold text-foreground">{skill.name}</span>
+          
+          <div className="animate-fade-in-right">
+            <h3 className="text-2xl font-bold text-primary mb-8">Skills & Expertise</h3>
+            <div className="space-y-6">
+              {skills.map((skill, index) => (
+                <div key={skill.name} className="group">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-3">
+                      <skill.icon className="w-5 h-5 text-accent group-hover:scale-110 transition-transform" />
+                      <span className="font-semibold text-foreground">{skill.name}</span>
+                    </div>
+                    <span className="text-accent font-bold">{skill.level}%</span>
                   </div>
-                  <span className="text-accent font-bold">{skill.level}%</span>
+                  <div className="w-full bg-border rounded-full h-2">
+                    <div 
+                      className="h-2 bg-gradient-to-r from-accent to-primary rounded-full transition-all duration-1000 ease-out"
+                      style={{ 
+                        width: `${skill.level}%`,
+                        animationDelay: `${index * 0.2}s`
+                      }}
+                    ></div>
+                  </div>
                 </div>
-                <div className="w-full bg-border rounded-full h-2">
-                  <div 
-                    className="h-2 bg-gradient-to-r from-accent to-primary rounded-full transition-all duration-1000 ease-out"
-                    style={{ 
-                      width: `${skill.level}%`,
-                      animationDelay: `${index * 0.2}s`
-                    }}
-                  ></div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

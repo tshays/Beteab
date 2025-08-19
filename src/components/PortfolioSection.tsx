@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -92,17 +93,6 @@ const PortfolioSection = () => {
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === activeFilter);
 
-  useEffect(() => {
-    const scrollContainer = document.querySelector('.portfolio-scroll-container') as HTMLElement;
-    if (scrollContainer) {
-      const scrollWidth = scrollContainer.scrollWidth;
-      const clientWidth = scrollContainer.clientWidth;
-      const scrollDistance = scrollWidth - clientWidth;
-      
-      scrollContainer.style.setProperty('--scroll-distance', `${scrollDistance}px`);
-    }
-  }, [filteredItems]);
-
   return (
     <section id="portfolio" className="section-padding">
       <div className="container-custom">
@@ -132,30 +122,29 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        {/* Auto-scrolling Portfolio */}
-        <div className="relative overflow-hidden">
-          <div className="portfolio-scroll-container flex gap-6 animate-scroll-horizontal">
-            {filteredItems.concat(filteredItems).map((item, index) => (
-              <Card 
-                key={`${item.id}-${index}`} 
-                className="portfolio-card-scroll flex-shrink-0"
-              >
-                <div className="relative overflow-hidden group">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-80 h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <div className="text-primary-foreground p-6 w-full">
-                      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                      <p className="text-primary-foreground/90">{item.description}</p>
-                    </div>
+        {/* Portfolio Grid */}
+        <div className="portfolio-grid">
+          {filteredItems.map((item, index) => (
+            <Card 
+              key={item.id} 
+              className={`portfolio-card animate-fade-in-up`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="portfolio-image"
+                />
+                <div className="portfolio-overlay">
+                  <div className="text-primary-foreground">
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-primary-foreground/90">{item.description}</p>
                   </div>
                 </div>
-              </Card>
-            ))}
-          </div>
+              </div>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
