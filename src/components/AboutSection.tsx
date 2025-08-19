@@ -1,17 +1,8 @@
 
 import React from 'react';
-import { Palette, Video, Brush, BookOpen, Type, Camera } from 'lucide-react';
+import TiltedCard from './TiltedCard';
 
 const AboutSection = () => {
-  const skills = [
-    { icon: Palette, name: "Graphics Design", level: 95 },
-    { icon: Video, name: "Video Editing", level: 90 },
-    { icon: Brush, name: "Wall Painting", level: 88 },
-    { icon: BookOpen, name: "Book Design", level: 92 },
-    { icon: Type, name: "Font Design", level: 85 },
-    { icon: Camera, name: "Digital Printing", level: 87 }
-  ];
-
   return (
     <section className="section-padding bg-muted/30">
       <div className="container-custom">
@@ -43,30 +34,21 @@ const AboutSection = () => {
             </p>
           </div>
           
-          <div className="animate-fade-in-right">
-            <h3 className="text-2xl font-bold text-primary mb-8">Skills & Expertise</h3>
-            <div className="space-y-6">
-              {skills.map((skill, index) => (
-                <div key={skill.name} className="group">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-3">
-                      <skill.icon className="w-5 h-5 text-accent group-hover:scale-110 transition-transform" />
-                      <span className="font-semibold text-foreground">{skill.name}</span>
-                    </div>
-                    <span className="text-accent font-bold">{skill.level}%</span>
-                  </div>
-                  <div className="w-full bg-border rounded-full h-2">
-                    <div 
-                      className="h-2 bg-gradient-to-r from-accent to-primary rounded-full transition-all duration-1000 ease-out"
-                      style={{ 
-                        width: `${skill.level}%`,
-                        animationDelay: `${index * 0.2}s`
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="animate-fade-in-right flex justify-center">
+            <TiltedCard
+              imageSrc="/lovable-uploads/379512e6-a55b-4e71-9ca4-73f3ff8068de.png"
+              altText="Beteab Alemu - Creative Professional"
+              captionText="Beteab Alemu"
+              containerHeight="400px"
+              containerWidth="350px"
+              imageHeight="400px"
+              imageWidth="350px"
+              rotateAmplitude={12}
+              scaleOnHover={1.15}
+              showMobileWarning={false}
+              showTooltip={true}
+              displayOverlayContent={false}
+            />
           </div>
         </div>
       </div>
