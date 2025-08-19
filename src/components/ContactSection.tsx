@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin, Send, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Facebook, Instagram } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
 const ContactSection = () => {
@@ -53,7 +53,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Email</h4>
-                  <p className="text-muted-foreground">beteabalemu@gmail.com</p>
+                  <p className="text-muted-foreground">alemubeteab@gmail.com</p>
                 </div>
               </div>
               
@@ -63,7 +63,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Phone</h4>
-                  <p className="text-muted-foreground">+251-911-234-567</p>
+                  <p className="text-muted-foreground">+251 94 219 5957</p>
                 </div>
               </div>
               
@@ -73,7 +73,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Location</h4>
-                  <p className="text-muted-foreground">Addis Ababa, Ethiopia</p>
+                  <p className="text-muted-foreground">Dire Dawa, Ethiopia</p>
                 </div>
               </div>
             </div>
@@ -82,17 +82,39 @@ const ContactSection = () => {
             <div>
               <h4 className="font-semibold text-foreground mb-4">Follow My Work</h4>
               <div className="flex gap-4">
-                <Button variant="outline" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  className="rounded-full hover:bg-accent hover:text-accent-foreground"
+                  onClick={() => window.open('https://web.facebook.com/beteab.alemu', '_blank')}
+                >
                   <Facebook className="w-5 h-5" />
                 </Button>
-                <Button variant="outline" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  className="rounded-full hover:bg-accent hover:text-accent-foreground"
+                  onClick={() => window.open('https://www.instagram.com/beteab27?igsh=MWsycnF6b3NhZnRjaw%3D%3D&utm_source=qr', '_blank')}
+                >
                   <Instagram className="w-5 h-5" />
                 </Button>
-                <Button variant="outline" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  className="rounded-full hover:bg-accent hover:text-accent-foreground"
+                  onClick={() => window.open('mailto:alemubeteab@gmail.com', '_blank')}
+                >
                   <Mail className="w-5 h-5" />
                 </Button>
-                <Button variant="outline" size="icon" className="rounded-full hover:bg-accent hover:text-accent-foreground">
-                  <Linkedin className="w-5 h-5" />
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  className="rounded-full hover:bg-accent hover:text-accent-foreground"
+                  onClick={() => window.open('https://www.tiktok.com/@beteab27', '_blank')}
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5.16 20.5a6.33 6.33 0 0 0 10.77-4.6V7.5a8.28 8.28 0 0 0 4.26 1.2v-3.4a4.84 4.84 0 0 1-.6.39z"/>
+                  </svg>
                 </Button>
               </div>
             </div>
