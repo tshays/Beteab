@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -94,7 +93,7 @@ const PortfolioSection = () => {
     : portfolioItems.filter(item => item.category === activeFilter);
 
   useEffect(() => {
-    const scrollContainer = document.querySelector('.portfolio-scroll-container');
+    const scrollContainer = document.querySelector('.portfolio-scroll-container') as HTMLElement;
     if (scrollContainer) {
       const scrollWidth = scrollContainer.scrollWidth;
       const clientWidth = scrollContainer.clientWidth;
