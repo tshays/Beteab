@@ -6,7 +6,7 @@ import PortfolioSection from '@/components/PortfolioSection';
 import AboutSection from '@/components/AboutSection';
 import ToolsSection from '@/components/ToolsSection';
 import ContactSection from '@/components/ContactSection';
-import { Facebook, Instagram, Mail } from 'lucide-react';
+import { Facebook, Instagram, Mail, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
@@ -62,39 +62,17 @@ const Index = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-accent">Connect With Me</h4>
               <div className="flex gap-3 justify-center md:justify-start mb-4">
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  className="rounded-full border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground hover:border-accent"
-                  onClick={() => window.open('https://web.facebook.com/beteab.alemu', '_blank')}
-                >
+                <Button variant="outline" size="icon" className="rounded-full border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground hover:border-accent">
                   <Facebook className="w-4 h-4" />
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  className="rounded-full border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground hover:border-accent"
-                  onClick={() => window.open('https://www.instagram.com/beteab27?igsh=MWsycnF6b3NhZnRjaw%3D%3D&utm_source=qr', '_blank')}
-                >
+                <Button variant="outline" size="icon" className="rounded-full border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground hover:border-accent">
                   <Instagram className="w-4 h-4" />
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  className="rounded-full border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground hover:border-accent"
-                  onClick={() => window.open('mailto:alemubeteab@gmail.com', '_blank')}
-                >
+                <Button variant="outline" size="icon" className="rounded-full border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground hover:border-accent">
                   <Mail className="w-4 h-4" />
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  className="rounded-full border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground hover:border-accent"
-                  onClick={() => window.open('https://www.tiktok.com/@beteab27', '_blank')}
-                >
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5.16 20.5a6.33 6.33 0 0 0 10.77-4.6V7.5a8.28 8.28 0 0 0 4.26 1.2v-3.4a4.84 4.84 0 0 1-.6.39z"/>
-                  </svg>
+                <Button variant="outline" size="icon" className="rounded-full border-primary-foreground/20 hover:bg-accent hover:text-accent-foreground hover:border-accent">
+                  <Send className="w-4 h-4" />
                 </Button>
               </div>
               <ul className="space-y-1 text-sm text-primary-foreground/60">
