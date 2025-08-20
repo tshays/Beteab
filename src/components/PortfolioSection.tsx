@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import RollingGallery from './RollingGallery';
+import VideoEditingSection from './VideoEditingSection';
 
 const PortfolioSection = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -146,7 +148,15 @@ const PortfolioSection = () => {
             </Card>
           ))}
         </div>
+
+        {/* Rolling Gallery */}
+        <div className="mt-20">
+          <RollingGallery autoplay={true} pauseOnHover={true} />
+        </div>
       </div>
+
+      {/* Video Editing Section */}
+      <VideoEditingSection />
     </section>
   );
 };
