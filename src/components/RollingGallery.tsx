@@ -1,19 +1,19 @@
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useAnimation, useTransform } from "motion/react";
+import { motion, useMotionValue, useAnimation, useTransform } from "framer-motion";
 import "./RollingGallery.css";
 
 const IMGS = [
-  "/lovable-uploads/52a90dd5-e5c0-4f49-9b9f-99f498cb7eb2.png",
-  "/lovable-uploads/f6161222-8a64-4f0c-b41a-0f33c2d40055.png",
-  "/lovable-uploads/5f294d07-3330-4e1c-af57-f799b7dc4300.png",
-  "/lovable-uploads/721bcd34-de12-47b6-b408-a5ea86a5cf13.png",
-  "/lovable-uploads/ce61c42e-181c-4770-8524-d762d0829ec4.png",
-  "/lovable-uploads/7188f1ce-3e24-46b6-ae62-040438e6bd0f.png",
-  "/lovable-uploads/c3525a28-6c27-4f83-8a7c-37bacbac6c22.png",
-  "/lovable-uploads/981b325d-c604-41b0-801e-544f0e71fc47.png",
-  "/lovable-uploads/0f5668b5-b903-4740-bd4f-ce6bd8619cf1.png",
-  "/lovable-uploads/0cc55e7b-a368-4371-9de8-b885d0784873.png",
+  "https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1495103033382-fe343886b671?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1506781961370-37a89d6b3095?q=80&w=3264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1599576838688-8a6c11263108?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1494094892896-7f14a4433b7a?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://plus.unsplash.com/premium_photo-1664910706524-e783eed89e71?q=80&w=3869&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1503788311183-fa3bf9c4bc32?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1585970480901-90d6bb2a48b5?q=80&w=3774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 ];
 
 const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] }) => {
@@ -28,7 +28,7 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
 
   const rotation = useMotionValue(0);
   const controls = useAnimation();
-  const autoplayRef = useRef();
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleDrag = (_, info) => {
     rotation.set(rotation.get() + info.offset.x * dragFactor);
@@ -55,7 +55,11 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
         rotation.set(rotation.get() - (360 / faceCount));
       }, 2000);
 
-      return () => clearInterval(autoplayRef.current);
+      return () => {
+        if (autoplayRef.current) {
+          clearInterval(autoplayRef.current);
+        }
+      };
     }
   }, [autoplay, rotation, controls, faceCount]);
 
@@ -69,7 +73,7 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
   }, []);
 
   const handleMouseEnter = () => {
-    if (autoplay && pauseOnHover) {
+    if (autoplay && pauseOnHover && autoplayRef.current) {
       clearInterval(autoplayRef.current);
       controls.stop();
     }
