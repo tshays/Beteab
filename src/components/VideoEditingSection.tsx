@@ -71,7 +71,7 @@ const demoFrames = [
 
 const VideoEditingSection = () => {
   return (
-    <section className="section-padding bg-background">
+    <div className="section-padding bg-muted/20">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="heading-secondary mb-6">Video Editing</h2>
@@ -81,7 +81,7 @@ const VideoEditingSection = () => {
           </p>
         </div>
 
-        <div className="h-[600px] w-full bg-background rounded-lg overflow-hidden">
+        <div className="h-[600px] w-full bg-background rounded-lg overflow-hidden border">
           <DynamicFrameLayout 
             frames={demoFrames} 
             className="w-full h-full" 
@@ -90,7 +90,7 @@ const VideoEditingSection = () => {
           />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
