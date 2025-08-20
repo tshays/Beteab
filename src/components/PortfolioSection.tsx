@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import VideoEditingSection from './VideoEditingSection';
 
 const PortfolioSection = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -80,6 +79,47 @@ const PortfolioSection = () => {
       title: 'Sacred Text Typography',
       description: 'Specialized font for religious texts',
       image: '/lovable-uploads/0cc55e7b-a368-4371-9de8-b885d0784873.png'
+    },
+    // Video Editing
+    {
+      id: 11,
+      category: 'video-editing',
+      title: 'Ethiopian Traditional Music Video',
+      description: 'Creative music video editing and production',
+      video: 'https://youtu.be/GyM_beT-NiE?si=g3R1gV9aWfbAQxYS',
+      isVideo: true
+    },
+    {
+      id: 12,
+      category: 'video-editing',
+      title: 'Cultural Documentary',
+      description: 'Documentary video editing and storytelling',
+      video: 'https://youtu.be/oeAchampMMI?si=D879c4-8wUIcGQYG',
+      isVideo: true
+    },
+    {
+      id: 13,
+      category: 'video-editing',
+      title: 'Social Media Content',
+      description: 'Instagram reel editing and social media content',
+      video: 'https://www.instagram.com/reel/DNKvCFisyvr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+      isVideo: true
+    },
+    {
+      id: 14,
+      category: 'video-editing',
+      title: 'Creative Visual Effects',
+      description: 'Advanced video editing with visual effects',
+      video: 'https://www.instagram.com/reel/DMP9TGSNeYI/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+      isVideo: true
+    },
+    {
+      id: 15,
+      category: 'video-editing',
+      title: 'Promotional Content',
+      description: 'Marketing and promotional video editing',
+      video: 'https://www.instagram.com/reel/DEZDubYNlSQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+      isVideo: true
     }
   ];
 
@@ -87,12 +127,25 @@ const PortfolioSection = () => {
     { id: 'all', name: 'All Work' },
     { id: 'book-covers', name: 'Book Covers' },
     { id: 'digital-paintings', name: 'Digital Paintings' },
-    { id: 'font-design', name: 'Font Design' }
+    { id: 'font-design', name: 'Font Design' },
+    { id: 'video-editing', name: 'Video Editing' }
   ];
 
   const filteredItems = activeFilter === 'all' 
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === activeFilter);
+
+  const getEmbedUrl = (url: string) => {
+    if (url.includes('youtu.be')) {
+      const videoId = url.split('/').pop()?.split('?')[0];
+      return `https://www.youtube.com/embed/${videoId}`;
+    }
+    if (url.includes('instagram.com/reel')) {
+      const reelId = url.split('/reel/')[1]?.split('/')[0];
+      return `https://www.instagram.com/reel/${reelId}/embed/`;
+    }
+    return url;
+  };
 
   return (
     <section id="portfolio" className="section-padding">
@@ -132,11 +185,23 @@ const PortfolioSection = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="portfolio-image"
-                />
+                {item.isVideo ? (
+                  <div className="w-full h-64">
+                    <iframe
+                      src={getEmbedUrl(item.video)}
+                      className="w-full h-full rounded-t-lg"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                ) : (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="portfolio-image"
+                  />
+                )}
                 <div className="portfolio-overlay">
                   <div className="text-primary-foreground">
                     <h3 className="text-xl font-bold mb-2">{item.title}</h3>
@@ -148,9 +213,6 @@ const PortfolioSection = () => {
           ))}
         </div>
       </div>
-
-      {/* Video Editing Section */}
-      <VideoEditingSection />
     </section>
   );
 };
