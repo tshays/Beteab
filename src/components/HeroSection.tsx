@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Eye, MessageSquare } from 'lucide-react';
@@ -9,8 +8,7 @@ const HeroSection = () => {
   // Array of videos to cycle through
   const heroVideos = [
     "https://www.youtube.com/embed/GyM_beT-NiE?autoplay=1&mute=1&loop=1&playlist=GyM_beT-NiE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0",
-    "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0",
-    "https://www.youtube.com/embed/jNQXAC9IVRw?autoplay=1&mute=1&loop=1&playlist=jNQXAC9IVRw&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0"
+    "https://www.youtube.com/embed/oeAchampMMI?autoplay=1&mute=1&loop=1&playlist=oeAchampMMI&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0"
   ];
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -27,7 +25,7 @@ const HeroSection = () => {
         setFade(true);
       }, 300); // Half second fade out
       
-    }, 3000); // Change video every 3 seconds
+    }, 4000); // Change video every 4 seconds
 
     return () => clearInterval(interval);
   }, [heroVideos.length]);

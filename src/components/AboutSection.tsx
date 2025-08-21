@@ -4,10 +4,10 @@ import TiltedCard from './TiltedCard';
 
 const AboutSection = () => {
   return (
-    <section className="section-padding bg-muted/30">
+    <section id="about" className="section-padding bg-muted/30">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="heading-secondary mb-6">About Beteab Alemu</h2>
+          <h2 className="heading-secondary mb-6">About Us</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto mb-8"></div>
         </div>
         
@@ -30,7 +30,7 @@ const AboutSection = () => {
             </p>
           </div>
           
-          <div className="animate-fade-in-right flex justify-center">
+          <div className="animate-fade-in-right flex justify-center hidden lg:block">
             <TiltedCard
               imageSrc="/lovable-uploads/379512e6-a55b-4e71-9ca4-73f3ff8068de.png"
               altText="Beteab Alemu - Creative Professional"
