@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Eye, MessageSquare } from 'lucide-react';
@@ -5,7 +6,7 @@ import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 import LightRays from './LightRays';
 
 const HeroSection = () => {
-  // Array of videos to cycle through
+  // Array of videos to cycle through - clean YouTube embed URLs
   const heroVideos = [
     "https://www.youtube.com/embed/GyM_beT-NiE?autoplay=1&mute=1&loop=1&playlist=GyM_beT-NiE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0",
     "https://www.youtube.com/embed/oeAchampMMI?autoplay=1&mute=1&loop=1&playlist=oeAchampMMI&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0"
@@ -25,7 +26,7 @@ const HeroSection = () => {
         setFade(true);
       }, 300); // Half second fade out
       
-    }, 4000); // Change video every 4 seconds
+    }, 60000); // Change video every 60 seconds (1 minute)
 
     return () => clearInterval(interval);
   }, [heroVideos.length]);
