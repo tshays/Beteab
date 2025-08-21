@@ -1,11 +1,37 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Eye, MessageSquare } from 'lucide-react';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 import LightRays from './LightRays';
 
 const HeroSection = () => {
+  // Array of videos to cycle through
+  const heroVideos = [
+    "https://www.youtube.com/embed/GyM_beT-NiE?autoplay=1&mute=1&loop=1&playlist=GyM_beT-NiE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0",
+    "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0",
+    "https://www.youtube.com/embed/jNQXAC9IVRw?autoplay=1&mute=1&loop=1&playlist=jNQXAC9IVRw&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0"
+  ];
+
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      
+      setTimeout(() => {
+        setCurrentVideoIndex((prevIndex) => 
+          (prevIndex + 1) % heroVideos.length
+        );
+        setFade(true);
+      }, 300); // Half second fade out
+      
+    }, 3000); // Change video every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [heroVideos.length]);
+
   const scrollToPortfolio = () => {
     document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -63,10 +89,11 @@ const HeroSection = () => {
         }
       >
         <div className="relative w-full h-full">
-          {/* Hero Background Video */}
+          {/* Hero Background Video with Fade Transition */}
           <iframe
-            src="https://www.youtube.com/embed/GyM_beT-NiE?autoplay=1&mute=1&loop=1&playlist=GyM_beT-NiE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0"
-            className="w-full h-full object-cover rounded-2xl"
+            key={currentVideoIndex}
+            src={heroVideos[currentVideoIndex]}
+            className={`w-full h-full object-cover rounded-2xl transition-opacity duration-300 ${fade ? 'opacity-100' : 'opacity-0'}`}
             style={{ 
               minWidth: '100%', 
               minHeight: '100%',
