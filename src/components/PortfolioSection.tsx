@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Card from '@/components/ui/carousel-card';
+import { DynamicFrameLayout } from '@/components/ui/dynamic-frame-layout';
 
 const PortfolioSection = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -72,45 +73,46 @@ const PortfolioSection = () => {
         content: 'Specialized font design for religious texts combining traditional script with modern clarity.',
         imgUrl: '/lovable-uploads/0cc55e7b-a368-4371-9de8-b885d0784873.png'
       }
-    ],
-    'video-editing': [
-      {
-        id: 11,
-        title: 'Ethiopian Traditional Music Video',
-        content: 'Creative music video editing and production showcasing traditional Ethiopian music with modern cinematography techniques.',
-        video: 'https://youtu.be/GyM_beT-NiE?si=g3R1gV9aWfbAQxYS',
-        isVideo: true
-      },
-      {
-        id: 12,
-        title: 'Cultural Documentary',
-        content: 'Documentary video editing and storytelling highlighting Ethiopian cultural practices and traditions.',
-        video: 'https://youtu.be/oeAchampMMI?si=D879c4-8wUIcGQYG',
-        isVideo: true
-      },
-      {
-        id: 13,
-        title: 'Social Media Content',
-        content: 'Instagram reel editing and social media content creation with engaging visual storytelling techniques.',
-        video: 'https://www.instagram.com/reel/DNKvCFisyvr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-        isVideo: true
-      },
-      {
-        id: 14,
-        title: 'Creative Visual Effects',
-        content: 'Advanced video editing with visual effects and motion graphics for enhanced storytelling impact.',
-        video: 'https://www.instagram.com/reel/DMP9TGSNeYI/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-        isVideo: true
-      },
-      {
-        id: 15,
-        title: 'Promotional Content',
-        content: 'Marketing and promotional video editing with compelling narratives and professional post-production.',
-        video: 'https://www.instagram.com/reel/DEZDubYNlSQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-        isVideo: true
-      }
     ]
   };
+
+  const videoFrames = [
+    {
+      id: 1,
+      video: "https://www.youtube.com/embed/GyM_beT-NiE",
+      defaultPos: { x: 0, y: 0, w: 4, h: 4 },
+      mediaSize: 1,
+      isHovered: false,
+    },
+    {
+      id: 2,
+      video: "https://www.youtube.com/embed/oeAchampMMI", 
+      defaultPos: { x: 4, y: 0, w: 4, h: 4 },
+      mediaSize: 1,
+      isHovered: false,
+    },
+    {
+      id: 3,
+      video: "https://www.instagram.com/reel/DNKvCFisyvr/embed/",
+      defaultPos: { x: 8, y: 0, w: 4, h: 4 },
+      mediaSize: 1,
+      isHovered: false,
+    },
+    {
+      id: 4,
+      video: "https://www.instagram.com/reel/DMP9TGSNeYI/embed/",
+      defaultPos: { x: 0, y: 4, w: 4, h: 4 },
+      mediaSize: 1,
+      isHovered: false,
+    },
+    {
+      id: 5,
+      video: "https://www.instagram.com/reel/DEZDubYNlSQ/embed/",
+      defaultPos: { x: 4, y: 4, w: 4, h: 4 },
+      mediaSize: 1,
+      isHovered: false,
+    }
+  ];
 
   const categories = [
     { id: 'all', name: 'All Work' },
@@ -129,6 +131,23 @@ const PortfolioSection = () => {
       return getAllItems();
     }
     return portfolioItems[activeFilter] || [];
+  };
+
+  const renderContent = () => {
+    if (activeFilter === 'video-editing') {
+      return (
+        <div className="w-full" style={{ height: '600px' }}>
+          <DynamicFrameLayout 
+            frames={videoFrames} 
+            className="w-full h-full" 
+            hoverSize={6}
+            gapSize={4}
+          />
+        </div>
+      );
+    }
+    
+    return <Card data={getCurrentData()} showCarousel={true} cardsPerView={3} />;
   };
 
   return (
@@ -160,9 +179,9 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        {/* Portfolio Cards */}
+        {/* Portfolio Content */}
         <div className="mb-16">
-          <Card data={getCurrentData()} showCarousel={true} cardsPerView={3} />
+          {renderContent()}
         </div>
       </div>
     </section>

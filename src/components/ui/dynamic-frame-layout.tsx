@@ -56,6 +56,8 @@ function FrameComponent({
     }
   }, [isHovered])
 
+  const isEmbedVideo = video.includes('youtube.com/embed') || video.includes('instagram.com');
+
   return (
     <div
       className={`relative ${className}`}
@@ -86,14 +88,24 @@ function FrameComponent({
               transition: "transform 0.3s ease-in-out",
             }}
           >
-            <video
-              className="w-full h-full object-cover rounded-lg"
-              src={video}
-              loop
-              muted
-              playsInline
-              ref={videoRef}
-            />
+            {isEmbedVideo ? (
+              <iframe
+                src={video}
+                className="w-full h-full rounded-lg"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <video
+                className="w-full h-full object-cover rounded-lg"
+                src={video}
+                loop
+                muted
+                playsInline
+                ref={videoRef}
+              />
+            )}
           </div>
         </div>
       </div>
