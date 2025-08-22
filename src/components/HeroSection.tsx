@@ -65,7 +65,8 @@ const HeroSection = () => {
             {/* Name */}
             <SplitText
               text="Beteab Alemu"
-              className="text-5xl md:text-7xl font-bold text-accent mb-4 whitespace-nowrap text-center"
+               className="text-5xl md:text-7xl font-bold text-accent mb-4 block text-center"
+
               delay={100}
               duration={0.6}
               ease="power3.out"
