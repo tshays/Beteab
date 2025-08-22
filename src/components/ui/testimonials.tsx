@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -9,18 +8,38 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { User } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 function Testimonials() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
-  useEffect(() => {
-    if (!api) {
-      return;
-    }
+  const testimonials = [
+    {
+      title: "Best decision",
+      text: "Working with Beteab was one of the best decisions I made for my business. He designed a book cover that perfectly captured the message I wanted to share. His creativity, attention to detail, and professionalism made the whole process smooth and enjoyable.",
+    },
+    {
+      title: "Professional and reliable",
+      text: "I needed someone who could bring my vision to life, and Beteab delivered beyond my expectations. He communicates clearly, meets deadlines, and produces high-quality work that stands out.",
+    },
+    {
+      title: "Highly recommended",
+      text: "What impressed me most was how he listened to my ideas and transformed them into something even better. His design sense is excellent, and his work ethic is unmatched.",
+    },
+    {
+      title: "Creative partner",
+      text: "Beteab isn’t just a designer—he’s a creative partner who truly cares about helping you succeed. I’ll definitely work with him again in the future.",
+    },
+    {
+      title: "Exceptional quality",
+      text: "The final product exceeded my expectations. The design was polished, professional, and aligned perfectly with my goals.",
+    },
+  ];
 
-    setTimeout(() => {
+  useEffect(() => {
+    if (!api) return;
+
+    const interval = setTimeout(() => {
       if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
         setCurrent(0);
         api.scrollTo(0);
@@ -29,6 +48,8 @@ function Testimonials() {
         setCurrent(current + 1);
       }
     }, 4000);
+
+    return () => clearTimeout(interval);
   }, [api, current]);
 
   return (
@@ -40,28 +61,19 @@ function Testimonials() {
           </h2>
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
-              {Array.from({ length: 15 }).map((_, index) => (
+              {testimonials.map((testimonial, index) => (
                 <CarouselItem className="lg:basis-1/2" key={index}>
-                  <div className="bg-muted rounded-md h-full lg:col-span-2 p-6 aspect-video flex justify-between flex-col">
+                  <div className="bg-muted rounded-md h-full p-6 aspect-video flex justify-between flex-col">
                     <User className="w-8 h-8 stroke-1" />
                     <div className="flex flex-col gap-4">
                       <div className="flex flex-col">
                         <h3 className="text-xl tracking-tight">
-                          Best decision
+                          {testimonial.title}
                         </h3>
                         <p className="text-muted-foreground max-w-xs text-base">
-                          Our goal was to streamline SMB trade, making it easier
-                          and faster than ever and we did it together.
+                          {testimonial.text}
                         </p>
                       </div>
-                      <p className="flex flex-row gap-2 text-sm items-center">
-                        <span className="text-muted-foreground">By</span>{" "}
-                        <Avatar className="h-6 w-6">
-                          <AvatarImage src="https://github.com/shadcn.png" />
-                          <AvatarFallback>CN</AvatarFallback>
-                        </Avatar>
-                        <span>John Johnsen</span>
-                      </p>
                     </div>
                   </div>
                 </CarouselItem>
