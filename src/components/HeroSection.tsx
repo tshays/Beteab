@@ -112,7 +112,7 @@ const HeroSection = () => {
   }
 />
 
-      >
+    
         <div className="relative w-full h-full">
           {/* Hero Background Video with Fade Transition */}
           <iframe
