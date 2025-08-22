@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -9,27 +8,49 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { User } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 function Testimonials() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    if (!api) {
-      return;
-    }
+    if (!api) return;
 
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
         setCurrent(0);
         api.scrollTo(0);
       } else {
         api.scrollNext();
-        setCurrent(current + 1);
+        setCurrent((prev) => prev + 1);
       }
     }, 4000);
+
+    return () => clearTimeout(timer);
   }, [api, current]);
+
+  const testimonials = [
+    {
+      title: "Best decision",
+      text: "Working with Beteab was one of the best decisions I made for my business. He designed a book cover for me that perfectly captured the message I wanted to share. His creativity, attention to detail, and professionalism made the whole process smooth and enjoyable.",
+    },
+    {
+      title: "Creative and reliable",
+      text: "Beteab has a rare talent for blending creativity with professionalism. He not only met the deadline but also exceeded my expectations in design quality. I felt confident throughout the entire collaboration.",
+    },
+    {
+      title: "Highly recommended",
+      text: "Every project I’ve worked on with Beteab turned out better than I imagined. He listens carefully, adds his own creative input, and delivers designs that truly stand out.",
+    },
+    {
+      title: "A smooth process",
+      text: "The process of working with Beteab was simple and stress-free. He’s a great communicator and ensures the final design matches exactly what you need.",
+    },
+    {
+      title: "Exceeded expectations",
+      text: "I was amazed at how well Beteab understood my vision. The end result wasn’t just a design—it felt like a piece of art made specifically for my story.",
+    },
+  ];
 
   return (
     <div className="w-full py-20 lg:py-40">
@@ -40,27 +61,14 @@ function Testimonials() {
           </h2>
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
-              {Array.from({ length: 15 }).map((_, index) => (
+              {testimonials.map((t, index) => (
                 <CarouselItem className="lg:basis-1/2" key={index}>
-                  <div className="bg-muted rounded-md h-full lg:col-span-2 p-6 aspect-video flex justify-between flex-col">
+                  <div className="bg-muted rounded-md h-full p-6 aspect-video flex justify-between flex-col">
                     <User className="w-8 h-8 stroke-1" />
                     <div className="flex flex-col gap-4">
-                      <div className="flex flex-col">
-                        <h3 className="text-xl tracking-tight">
-                          Best decision
-                        </h3>
-                        <p className="text-muted-foreground max-w-xs text-base">
-                          Our goal was to streamline SMB trade, making it easier
-                          and faster than ever and we did it together.
-                        </p>
-                      </div>
-                      <p className="flex flex-row gap-2 text-sm items-center">
-                        <span className="text-muted-foreground">By</span>{" "}
-                        <Avatar className="h-6 w-6">
-                          <AvatarImage src="https://github.com/shadcn.png" />
-                          <AvatarFallback>CN</AvatarFallback>
-                        </Avatar>
-                        <span>John Johnsen</span>
+                      <h3 className="text-xl tracking-tight">{t.title}</h3>
+                      <p className="text-muted-foreground max-w-xs text-base">
+                        {t.text}
                       </p>
                     </div>
                   </div>
