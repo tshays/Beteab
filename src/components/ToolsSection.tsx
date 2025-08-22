@@ -50,7 +50,7 @@ const ToolsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {toolCategories.map((category, categoryIndex) => (
             <div key={category.category} className="animate-fade-in-up" style={{ animationDelay: `${categoryIndex * 0.1}s` }}>
               <h3 className="text-xl font-bold text-primary mb-6 text-center">
