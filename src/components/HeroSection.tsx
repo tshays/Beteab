@@ -63,55 +63,55 @@ const HeroSection = () => {
       
       <div className="hero-pattern"></div>
       
-      <ContainerScroll
-        titleComponent={
-          <div className="text-center relative z-10">
-            <SplitText
-              text="Beteab Alemu"
-              className="text-4xl md:text-6xl font-bold text-accent mb-6"
-              delay={100}
-              duration={0.6}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 40 }}
-              to={{ opacity: 1, y: 0 }}
-              threshold={0.1}
-              rootMargin="-100px"
-              textAlign="center"
-              onLetterAnimationComplete={handleAnimationComplete}
-            />
-            <SplitText
-              text="Blending Ethiopian tradition with modern digital artistry."
-              className="text-xl md:text-2xl text-primary-foreground/80 mb-12 max-w-4xl mx-auto"
-              delay={50}
-              duration={0.5}
-              ease="power3.out"
-              splitType="words"
-              from={{ opacity: 0, y: 20 }}
-              to={{ opacity: 1, y: 0 }}
-              threshold={0.1}
-              rootMargin="-100px"
-              textAlign="center"
-            />
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button 
-                onClick={scrollToPortfolio}
-                className="btn-primary group"
-              >
-                <Eye className="w-5 h-5 mr-2 transition-transform group-hover:scale-110" />
-                View Portfolio
-              </Button>
-              <Button 
-                onClick={scrollToContact}
-                className="btn-secondary"
-              >
-                <MessageSquare className="w-5 h-5 mr-2" />
-                Get in Touch
-              </Button>
-            </div>
-          </div>
-        }
+    <ContainerScroll
+  titleComponent={
+    <div className="flex flex-col items-center justify-center text-center relative z-10">
+      {/* Name - single line */}
+      <SplitText
+        text="Beteab Alemu"
+        className="text-5xl md:text-7xl font-bold text-accent mb-4 whitespace-nowrap"
+        delay={100}
+        duration={0.6}
+        ease="power3.out"
+        splitType="words"   // <-- ensures it stays on one line
+        from={{ opacity: 0, y: 40 }}
+        to={{ opacity: 1, y: 0 }}
+        threshold={0.1}
+        rootMargin="-100px"
+        textAlign="center"
+        onLetterAnimationComplete={handleAnimationComplete}
+      />
+
+      {/* Tagline */}
+      <SplitText
+        text="Blending Ethiopian tradition with modern digital artistry."
+        className="text-lg md:text-2xl text-primary-foreground/80 mb-10 max-w-3xl mx-auto"
+        delay={50}
+        duration={0.5}
+        ease="power3.out"
+        splitType="words"
+        from={{ opacity: 0, y: 20 }}
+        to={{ opacity: 1, y: 0 }}
+        threshold={0.1}
+        rootMargin="-100px"
+        textAlign="center"
+      />
+
+      {/* Buttons */}
+      <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <Button onClick={scrollToPortfolio} className="btn-primary group">
+          <Eye className="w-5 h-5 mr-2 transition-transform group-hover:scale-110" />
+          View Portfolio
+        </Button>
+        <Button onClick={scrollToContact} className="btn-secondary">
+          <MessageSquare className="w-5 h-5 mr-2" />
+          Get in Touch
+        </Button>
+      </div>
+    </div>
+  }
+/>
+
       >
         <div className="relative w-full h-full">
           {/* Hero Background Video with Fade Transition */}
