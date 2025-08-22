@@ -7,6 +7,7 @@ import AboutSection from '@/components/AboutSection';
 import ToolsSection from '@/components/ToolsSection';
 import ContactSection from '@/components/ContactSection';
 import FooterSection from '@/components/ui/footer';
+import { Testimonials } from '@/components/ui/testimonials';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,6 +35,9 @@ const Index = () => {
       
       {/* Tools Section */}
       <ToolsSection />
+      
+      {/* Testimonials Section */}
+      <Testimonials />
       
       {/* Contact Section */}
       <ContactSection />

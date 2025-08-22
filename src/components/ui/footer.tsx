@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Facebook, Instagram, Mail, Send, MessageCircle } from 'lucide-react';
 
@@ -13,14 +12,6 @@ const links = [
     },
     {
         title: 'Customers',
-        href: '#',
-    },
-    {
-        title: 'Pricing',
-        href: '#',
-    },
-    {
-        title: 'Help',
         href: '#',
     },
     {

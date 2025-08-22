@@ -12,19 +12,19 @@ const PortfolioSection = () => {
       {
         id: 1,
         title: 'Ethiopian Cultural Heritage Book',
-        content: 'Traditional Ethiopian art book cover design showcasing cultural elements and heritage themes.',
+        content: 'Book Covers',
         imgUrl: '/lovable-uploads/52a90dd5-e5c0-4f49-9b9f-99f498cb7eb2.png'
       },
       {
         id: 2,
         title: 'Religious Studies Publication',
-        content: 'Sacred text cover with traditional iconography and spiritual symbolism.',
+        content: 'Book Covers',
         imgUrl: '/lovable-uploads/f6161222-8a64-4f0c-b41a-0f33c2d40055.png'
       },
       {
         id: 3,
         title: 'Historical Documentation',
-        content: 'Cultural history book design featuring traditional Ethiopian historical elements.',
+        content: 'Book Covers',
         imgUrl: '/lovable-uploads/5f294d07-3330-4e1c-af57-f799b7dc4300.png'
       }
     ],
@@ -32,25 +32,25 @@ const PortfolioSection = () => {
       {
         id: 4,
         title: 'Spiritual Reflection',
-        content: 'Digital artwork depicting spiritual journey and religious contemplation through vibrant colors.',
+        content: 'Digital Paintings',
         imgUrl: '/lovable-uploads/721bcd34-de12-47b6-b408-a5ea86a5cf13.png'
       },
       {
         id: 5,
         title: 'Cultural Celebration',
-        content: 'Digital painting of Ethiopian traditions celebrating the rich cultural heritage of the region.',
+        content: 'Digital Paintings',
         imgUrl: '/lovable-uploads/ce61c42e-181c-4770-8524-d762d0829ec4.png'
       },
       {
         id: 6,
         title: 'Religious Architecture',
-        content: 'Digital representation of sacred spaces showcasing traditional Ethiopian church architecture.',
+        content: 'Digital Paintings',
         imgUrl: '/lovable-uploads/7188f1ce-3e24-46b6-ae62-040438e6bd0f.png'
       },
       {
         id: 7,
         title: 'Cultural Unity',
-        content: 'Digital artwork celebrating diversity and unity within Ethiopian cultural traditions.',
+        content: 'Digital Paintings',
         imgUrl: '/lovable-uploads/c3525a28-6c27-4f83-8a7c-37bacbac6c22.png'
       }
     ],
@@ -58,19 +58,19 @@ const PortfolioSection = () => {
       {
         id: 8,
         title: 'Ethiopian Script Typography',
-        content: 'Custom Amharic font design preserving traditional script aesthetics while ensuring modern readability.',
+        content: 'Font Design',
         imgUrl: '/lovable-uploads/981b325d-c604-41b0-801e-544f0e71fc47.png'
       },
       {
         id: 9,
         title: 'Cultural Publication Font',
-        content: 'Typography specifically designed for cultural publications maintaining traditional Ethiopian script elegance.',
+        content: 'Font Design',
         imgUrl: '/lovable-uploads/0f5668b5-b903-4740-bd4f-ce6bd8619cf1.png'
       },
       {
         id: 10,
         title: 'Sacred Text Typography',
-        content: 'Specialized font design for religious texts combining traditional script with modern clarity.',
+        content: 'Font Design',
         imgUrl: '/lovable-uploads/0cc55e7b-a368-4371-9de8-b885d0784873.png'
       }
     ]
