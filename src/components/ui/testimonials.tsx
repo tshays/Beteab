@@ -13,44 +13,44 @@ function Testimonials() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
+  const testimonials = [
+    {
+      title: "Best decision",
+      text: "Working with Beteab was one of the best decisions I made for my business. He designed a book cover that perfectly captured the message I wanted to share. His creativity, attention to detail, and professionalism made the whole process smooth and enjoyable.",
+    },
+    {
+      title: "Professional and reliable",
+      text: "I needed someone who could bring my vision to life, and Beteab delivered beyond my expectations. He communicates clearly, meets deadlines, and produces high-quality work that stands out.",
+    },
+    {
+      title: "Highly recommended",
+      text: "What impressed me most was how he listened to my ideas and transformed them into something even better. His design sense is excellent, and his work ethic is unmatched.",
+    },
+    {
+      title: "Creative partner",
+      text: "Beteab isn’t just a designer—he’s a creative partner who truly cares about helping you succeed. I’ll definitely work with him again in the future.",
+    },
+    {
+      title: "Exceptional quality",
+      text: "The final product exceeded my expectations. The design was polished, professional, and aligned perfectly with my goals.",
+    },
+  ];
+
   useEffect(() => {
     if (!api) return;
 
-    const timer = setTimeout(() => {
+    const interval = setTimeout(() => {
       if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
         setCurrent(0);
         api.scrollTo(0);
       } else {
         api.scrollNext();
-        setCurrent((prev) => prev + 1);
+        setCurrent(current + 1);
       }
     }, 4000);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(interval);
   }, [api, current]);
-
-  const testimonials = [
-    {
-      title: "Best decision",
-      text: "Working with Beteab was one of the best decisions I made for my business. He designed a book cover for me that perfectly captured the message I wanted to share. His creativity, attention to detail, and professionalism made the whole process smooth and enjoyable.",
-    },
-    {
-      title: "Creative and reliable",
-      text: "Beteab has a rare talent for blending creativity with professionalism. He not only met the deadline but also exceeded my expectations in design quality. I felt confident throughout the entire collaboration.",
-    },
-    {
-      title: "Highly recommended",
-      text: "Every project I’ve worked on with Beteab turned out better than I imagined. He listens carefully, adds his own creative input, and delivers designs that truly stand out.",
-    },
-    {
-      title: "A smooth process",
-      text: "The process of working with Beteab was simple and stress-free. He’s a great communicator and ensures the final design matches exactly what you need.",
-    },
-    {
-      title: "Exceeded expectations",
-      text: "I was amazed at how well Beteab understood my vision. The end result wasn’t just a design—it felt like a piece of art made specifically for my story.",
-    },
-  ];
 
   return (
     <div className="w-full py-20 lg:py-40">
@@ -61,15 +61,19 @@ function Testimonials() {
           </h2>
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
-              {testimonials.map((t, index) => (
+              {testimonials.map((testimonial, index) => (
                 <CarouselItem className="lg:basis-1/2" key={index}>
                   <div className="bg-muted rounded-md h-full p-6 aspect-video flex justify-between flex-col">
                     <User className="w-8 h-8 stroke-1" />
                     <div className="flex flex-col gap-4">
-                      <h3 className="text-xl tracking-tight">{t.title}</h3>
-                      <p className="text-muted-foreground max-w-xs text-base">
-                        {t.text}
-                      </p>
+                      <div className="flex flex-col">
+                        <h3 className="text-xl tracking-tight">
+                          {testimonial.title}
+                        </h3>
+                        <p className="text-muted-foreground max-w-xs text-base">
+                          {testimonial.text}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </CarouselItem>
