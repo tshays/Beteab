@@ -50,7 +50,8 @@ const ToolsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Desktop Grid */}
+        <div className="hidden lg:grid lg:grid-cols-4 gap-8">
           {toolCategories.map((category, categoryIndex) => (
             <div key={category.category} className="animate-fade-in-up" style={{ animationDelay: `${categoryIndex * 0.1}s` }}>
               <h3 className="text-xl font-bold text-primary mb-6 text-center">
@@ -72,6 +73,33 @@ const ToolsSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile/Tablet Horizontal Scroll */}
+        <div className="lg:hidden overflow-x-auto pb-4">
+          <div className="flex gap-6 min-w-max">
+            {toolCategories.map((category, categoryIndex) => (
+              <div key={category.category} className="flex-shrink-0 w-80 animate-fade-in-up" style={{ animationDelay: `${categoryIndex * 0.1}s` }}>
+                <h3 className="text-xl font-bold text-primary mb-6 text-center">
+                  {category.category}
+                </h3>
+                <div className="space-y-4">
+                  {category.tools.map((tool, toolIndex) => (
+                    <Card key={tool.name} className="group hover:shadow-lg transition-all duration-300">
+                      <CardContent className="p-4">
+                        <h4 className="font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+                          {tool.name}
+                        </h4>
+                        <p className="text-sm text-muted-foreground">
+                          {tool.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

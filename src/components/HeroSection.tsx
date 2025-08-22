@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowDown, Eye, MessageSquare } from 'lucide-react';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 import LightRays from './LightRays';
+import SplitText from './SplitText';
 
 const HeroSection = () => {
   // Array of videos to cycle through - clean YouTube embed URLs
@@ -39,6 +40,10 @@ const HeroSection = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleAnimationComplete = () => {
+    console.log('All letters have animated!');
+  };
+
   return (
     <section className="hero-container overflow-hidden relative">
       {/* LightRays Background */}
@@ -61,12 +66,33 @@ const HeroSection = () => {
       <ContainerScroll
         titleComponent={
           <div className="text-center relative z-10">
-            <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6">
-              <span className="text-accent">Beteab Alemu</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/80 mb-12 max-w-4xl mx-auto">
-              Blending Ethiopian tradition with modern digital artistry.
-            </p>
+            <SplitText
+              text="Beteab Alemu"
+              className="text-4xl md:text-6xl font-bold text-accent mb-6"
+              delay={100}
+              duration={0.6}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-100px"
+              textAlign="center"
+              onLetterAnimationComplete={handleAnimationComplete}
+            />
+            <SplitText
+              text="Blending Ethiopian tradition with modern digital artistry."
+              className="text-xl md:text-2xl text-primary-foreground/80 mb-12 max-w-4xl mx-auto"
+              delay={50}
+              duration={0.5}
+              ease="power3.out"
+              splitType="words"
+              from={{ opacity: 0, y: 20 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-100px"
+              textAlign="center"
+            />
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Button 
