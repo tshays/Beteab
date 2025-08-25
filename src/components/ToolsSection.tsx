@@ -32,6 +32,7 @@ const ToolsSection = () => {
         { name: 'Adobe InDesign', description: 'Professional layout and publishing' },
         { name: 'Adobe Illustrator', description: 'Typography and font design' }
       ]
+    }
   ];
 
   return (
@@ -48,13 +49,20 @@ const ToolsSection = () => {
         {/* Desktop Grid */}
         <div className="hidden lg:grid lg:grid-cols-4 gap-8">
           {toolCategories.map((category, categoryIndex) => (
-            <div key={category.category} className="animate-fade-in-up" style={{ animationDelay: `${categoryIndex * 0.1}s` }}>
+            <div
+              key={category.category}
+              className="animate-fade-in-up"
+              style={{ animationDelay: `${categoryIndex * 0.1}s` }}
+            >
               <h3 className="text-xl font-bold text-primary mb-6 text-center">
                 {category.category}
               </h3>
               <div className="space-y-4">
-                {category.tools.map((tool, toolIndex) => (
-                  <Card key={tool.name} className="group hover:shadow-lg transition-all duration-300">
+                {category.tools.map((tool) => (
+                  <Card
+                    key={tool.name}
+                    className="group hover:shadow-lg transition-all duration-300"
+                  >
                     <CardContent className="p-4">
                       <h4 className="font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
                         {tool.name}
@@ -74,13 +82,20 @@ const ToolsSection = () => {
         <div className="lg:hidden overflow-x-auto pb-4">
           <div className="flex gap-6 min-w-max">
             {toolCategories.map((category, categoryIndex) => (
-              <div key={category.category} className="flex-shrink-0 w-80 animate-fade-in-up" style={{ animationDelay: `${categoryIndex * 0.1}s` }}>
+              <div
+                key={category.category}
+                className="flex-shrink-0 w-80 animate-fade-in-up"
+                style={{ animationDelay: `${categoryIndex * 0.1}s` }}
+              >
                 <h3 className="text-xl font-bold text-primary mb-6 text-center">
                   {category.category}
                 </h3>
                 <div className="space-y-4">
-                  {category.tools.map((tool, toolIndex) => (
-                    <Card key={tool.name} className="group hover:shadow-lg transition-all duration-300">
+                  {category.tools.map((tool) => (
+                    <Card
+                      key={tool.name}
+                      className="group hover:shadow-lg transition-all duration-300"
+                    >
                       <CardContent className="p-4">
                         <h4 className="font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
                           {tool.name}
