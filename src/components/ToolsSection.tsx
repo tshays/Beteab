@@ -9,8 +9,6 @@ const ToolsSection = () => {
       tools: [
         { name: 'Adobe Photoshop', description: 'Photo editing and digital art creation' },
         { name: 'Adobe Illustrator', description: 'Vector graphics and logo design' },
-        { name: 'Figma', description: 'UI/UX design and prototyping' },
-        { name: 'CorelDRAW', description: 'Vector illustration and layout design' }
       ]
     },
     {
@@ -33,10 +31,8 @@ const ToolsSection = () => {
       category: 'Book & Font Design',
       tools: [
         { name: 'Adobe InDesign', description: 'Professional layout and publishing' },
-        { name: 'FontForge', description: 'Custom font creation and editing' },
         { name: 'Adobe Illustrator', description: 'Typography and font design' }
       ]
-    }
   ];
 
   return (
