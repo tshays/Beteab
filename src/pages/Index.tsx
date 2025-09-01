@@ -8,6 +8,7 @@ import ToolsSection from '@/components/ToolsSection';
 import ContactSection from '@/components/ContactSection';
 import FooterSection from '@/components/ui/footer';
 import { Testimonials } from '@/components/ui/testimonials';
+import ScrollToTop from '@/components/ScrollToTop';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +45,9 @@ const Index = () => {
       
       {/* Footer */}
       <FooterSection />
+      
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </div>
   );
 };
