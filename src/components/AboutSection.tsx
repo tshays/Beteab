@@ -1,6 +1,7 @@
 
 import React from 'react';
 import TiltedCard from './TiltedCard';
+import { Hand } from 'lucide-react';
 
 const AboutSection = () => {
   return (
@@ -9,6 +10,18 @@ const AboutSection = () => {
         <div className="text-center mb-16">
           <h2 className="heading-secondary mb-6">About Us</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto mb-8"></div>
+          
+          {/* Animated Hand Pulling Effect */}
+          <div className="flex justify-center mb-8">
+            <div className="animate-bounce">
+              <Hand 
+                className="h-8 w-8 text-accent transform rotate-180 animate-pulse" 
+                style={{
+                  animation: 'handPull 2s ease-in-out infinite'
+                }}
+              />
+            </div>
+          </div>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -48,6 +61,17 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes handPull {
+          0%, 100% {
+            transform: rotate(180deg) translateY(0px);
+          }
+          50% {
+            transform: rotate(180deg) translateY(-10px);
+          }
+        }
+      `}</style>
     </section>
   );
 };
