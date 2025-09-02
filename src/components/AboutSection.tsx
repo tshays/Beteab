@@ -1,14 +1,32 @@
 
 import React from 'react';
 import TiltedCard from './TiltedCard';
+import { Hand } from 'lucide-react';
 
 const AboutSection = () => {
   return (
     <section id="about" className="section-padding bg-muted/30">
+      <style>
+        {`
+          @keyframes handPull {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(-5deg); }
+            50% { transform: translateY(-4px) rotate(5deg); }
+            75% { transform: translateY(-12px) rotate(-3deg); }
+          }
+          
+          .hand-pull-animation {
+            animation: handPull 2s ease-in-out infinite;
+          }
+        `}
+      </style>
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="heading-secondary mb-6">About Us</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto mb-8"></div>
+          <div className="flex justify-center">
+            <Hand className="w-8 h-8 text-primary hand-pull-animation" />
+          </div>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-16 items-center">
