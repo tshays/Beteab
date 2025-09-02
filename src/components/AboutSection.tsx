@@ -1,26 +1,14 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import TiltedCard from './TiltedCard';
-import { Bot } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import AIAssistant from './AIAssistant';
 
 const AboutSection = () => {
-  const [showAssistant, setShowAssistant] = useState(false);
-
   return (
     <section id="about" className="section-padding bg-muted/30">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="heading-secondary mb-6">About Us</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto mb-8"></div>
-          <Button
-            onClick={() => setShowAssistant(true)}
-            className="bg-gradient-to-r from-primary via-primary to-secondary hover:from-primary/90 hover:via-primary/90 hover:to-secondary/90 text-primary-foreground"
-          >
-            <Bot className="w-5 h-5 mr-2" />
-            Ask AI About Beteab
-          </Button>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -60,11 +48,6 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-      
-      <AIAssistant 
-        isOpen={showAssistant} 
-        onClose={() => setShowAssistant(false)} 
-      />
     </section>
   );
 };

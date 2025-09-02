@@ -9,6 +9,7 @@ import ContactSection from '@/components/ContactSection';
 import FooterSection from '@/components/ui/footer';
 import { Testimonials } from '@/components/ui/testimonials';
 import ScrollToTop from '@/components/ScrollToTop';
+import FloatingAIIcon from '@/components/FloatingAIIcon';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,6 +49,9 @@ const Index = () => {
       
       {/* Scroll to Top Button */}
       <ScrollToTop />
+      
+      {/* Floating AI Icon */}
+      <FloatingAIIcon />
     </div>
   );
 };
