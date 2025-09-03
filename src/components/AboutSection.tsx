@@ -32,7 +32,7 @@ const AboutSection = () => {
           
           <div className="animate-fade-in-right flex justify-center hidden lg:block">
             <TiltedCard
-              imageSrc="/lovable-uploads/379512e6-a55b-4e71-9ca4-73f3ff8068de.png"
+              imageSrc="/assets/379512e6-a55b-4e71-9ca4-73f3ff8068de.png"
               altText="Beteab Alemu - Creative Professional"
               captionText="Beteab Alemu"
               containerHeight="400px"
